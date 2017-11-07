@@ -1,0 +1,315 @@
+#!/bin/bash
+
+## Assignment: Project 5 Bash
+## Author: William Dole
+## Version 1.1
+## Purpose: To create a menu for Linux
+
+declare -i pick=-1
+
+main () {
+        clear
+        whileLoop
+        exitMenu
+}
+
+whileLoop () {
+        while [ "$pick" -ne 0 ]
+        do
+                printMenu
+                setPick
+                checkPick
+                main
+        done
+}
+
+setPick () {
+                echo ""
+                echo "Write your selection then press enter."
+                echo ""
+                read -p "Your Selection: " pick
+}
+
+printMenu () {
+        echo "1.) Editing Commands"
+        echo "2.) Games"
+        echo "3.) User Administration"
+        echo "4.) Process Commands"
+        echo "5.) System Commands"
+        echo "6.) Network Commands"
+        echo ""
+        echo "Press 0 to exit."
+}
+
+checkPick () {
+        if [ $pick == 1 ]
+        then
+                editCommandMenu
+        elif [ $pick == 2 ]
+        then
+                gameMenu
+        elif [ $pick == 3 ]
+        then
+                userAdminMenu
+        elif [ $pick == 4 ]
+        then
+                processCommandMenu
+        elif [ $pick == 5 ]
+        then
+                systemCommandMenu
+        elif [ $pick == 6 ]
+        then
+                networkCommandMenu
+        elif [ $pick == 0 ]
+        then
+                main
+        else
+                echo "Invalid option. Please select a valid option."
+                sleep 2
+        fi
+}
+
+editCommandMenu () {
+        clear
+        echo "Command Editing Menu"
+        echo ""
+        echo "Please wait for a future version"
+        sleep 5
+}
+
+gameMenu () {
+        clear
+        echo "Game Menu"
+        echo ""
+        echo "1. Pacman"
+        echo "2. Minesweeper"
+        echo "3. Zerg Rush"
+        echo ""
+        echo "Press 9 to return to the main menu."
+        setPick
+        checkGame
+}
+
+checkGame () {
+        if [ $pick = 1 ]
+        then
+                pacmanGame
+        elif [ $pick = 2 ]
+        then
+                minesweeperGame
+        elif [ $pick = 3 ]
+        then
+                zergRushGame
+        elif [ $pick = 0 ]
+        then
+                pick=-1
+                checkGame
+        elif [ $pick = 9 ]
+        then
+                main
+        else
+                clear
+                echo "Invalid option!"
+                sleep 2
+                gameMenu
+        fi
+}
+
+pacmanGame () {
+        clear
+        echo "Pacman"
+        echo ""
+        echo "Please wait for a future version!"
+        sleep 2
+        gameMenu
+}
+
+minesweeperGame () {
+        clear
+        echo "Minesweeper"
+        echo ""
+        echo "Please wait for a future version!"
+        sleep 2
+        gameMenu
+}
+zergRushGame () {
+        clear
+        echo "Zerg Rush"
+        echo ""
+        echo "Please wait for a future version!"
+        sleep 2
+        gameMenu
+}
+
+userAdminMenu () {
+        clear
+        echo "User Administration Menu"
+        echo ""
+        echo "1. Add a user"
+        echo "2. Delete a user"
+        echo "3. Delete self"
+        echo ""
+        echo "Press 9 to return to the main menu"
+        setPick
+        checkAdmin
+}
+
+checkAdmin () {
+        if [ $pick = 1 ]
+        then
+                addUser
+        elif [ $pick = 2 ]
+        then
+                delUser
+        elif [ $pick = 3 ]
+        then
+                delSelf
+        elif [ $pick = 9 ]
+        then
+                main
+        elif [ $pick = 0 ]
+        then
+                pick=-1
+                checkAdmin
+        else
+                clear
+                echo "Invalid option"
+                sleep 2
+                userAdminMenu
+        fi
+}
+
+addUser () {
+        clear
+        echo "Add a User"
+        echo ""
+        echo "Please wait for a future version"
+        sleep 2
+        userAdminMenu
+}
+
+delUser () {
+        clear
+        echo "Delete a User"
+        echo ""
+        echo "Please wait for a future version"
+        sleep 2
+        userAdminMenu
+}
+
+delSelf () {
+        clear
+        echo "Delete Yourself"
+        echo ""
+        echo "Please log in as another user."
+        sleep 2
+        userAdminMenu
+}
+
+processCommandMenu () {
+        clear
+        echo "Process Commands Menu"
+        echo ""
+        echo "Please wait for a future version"
+        sleep 5
+}
+
+systemCommandMenu () {
+        clear
+        echo "System Commands Menu"
+        echo ""
+        echo "Please wait for a future version"
+        sleep 5
+}
+
+networkCommandMenu () {
+        clear
+        echo "Network Commands Menu"
+        echo ""
+        echo "1. Set IP"
+        echo "2. Enable Network Card"
+        echo "3. Disable Network Card"
+        echo ""
+        echo "Press 9 to return to the main menu"
+        setPick
+        checkNet
+}
+
+checkNet () {
+        if [ $pick = 1 ]
+        then
+                setIPMenu
+        elif [ $pick = 2 ]
+        then
+                enableNIC
+        elif [ $pick = 3 ]
+        then
+                disableNIC
+        elif [ $pick = 9 ]
+        then
+                main
+        elif [ $pick = 0 ]
+        then
+                pick=-1
+                checkNet
+        else
+                clear
+                echo "Invalid option"
+                sleep 2
+                networkCommandMenu
+        fi
+}
+
+setIPMenu () {
+        clear
+        echo "Set IP Address Menu"
+        echo ""
+        echo "Please wait for a future version"
+        sleep 2
+        networkCommandMenu
+}
+
+enableNIC () {
+        clear
+        echo "Enable a Network Connection"
+        echo ""
+        echo "Please wait for a future version"
+        sleep 2
+        networkCommandMenu
+}
+
+disableNIC () {
+        clear
+        echo "Disable a Network Connection"
+        echo ""
+        echo "Please wait for a future version"
+        sleep 2
+        networkCommandMenu
+}
+
+exitMenu () {
+        clear
+        echo "Exiting..."
+        sleep 1
+        clear
+        echo "eXiting."
+        sleep 1
+        clear
+        echo "exIting.."
+        sleep 1
+        clear
+        echo "exiTing..."
+        sleep 1
+        clear
+        echo "exitIng."
+        sleep 1
+        clear
+        echo "exitiNg.."
+        sleep 1
+        clear
+        echo "exitinG..."
+        sleep 1
+        clear
+}
+
+main
